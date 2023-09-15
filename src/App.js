@@ -5,25 +5,22 @@ import NewTask from "./components/NewTask/NewTask";
 import { useGetData } from "./hooks/useGetData";
 
 function App() {
+  const { isLoading, error, fetchTasks } = useGetData();
   const [tasks, setTasks] = useState([]);
-  const { isLoading, error, responseData: fetchTasks } = useGetData();
 
   useEffect(() => {
-    console.log("test");
-    const loadData = data => {
+    const fetchData = {
+      url: "https://custom-hooks-warm-up-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json",
+    };
+    const loadData = async () => {
+      const data = await fetchTasks(fetchData);
       const loadedTasks = [];
-
       for (const taskKey in data) {
         loadedTasks.push({ id: taskKey, text: data[taskKey].text });
       }
       setTasks(loadedTasks);
     };
-    fetchTasks(
-      {
-        url: "https://custom-hooks-warm-up-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json",
-      },
-      loadData
-    );
+    loadData();
   }, [fetchTasks]);
 
   const taskAddHandler = task => {
