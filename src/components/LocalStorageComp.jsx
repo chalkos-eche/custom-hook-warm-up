@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export const LocalStorageComp = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useLocalStorage('');
   return (
     <div>
       <h1>LocalStorageCom</h1>

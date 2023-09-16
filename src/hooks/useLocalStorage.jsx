@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+
 export const useLocalStorage = () => {
-  return;
+  const [value, setValue] = useState('');
+  return [value, setValue];
 };
