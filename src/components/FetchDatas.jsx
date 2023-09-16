@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import Tasks from "./components/Tasks/Tasks";
-import NewTask from "./components/NewTask/NewTask";
-import { useGetData } from "./hooks/useGetData";
+import Tasks from "../components/Tasks/Tasks";
+import NewTask from "../components/NewTask/NewTask";
+import { useGetData } from "../hooks/useGetData";
 
 function FetchDatas() {
   const { isLoading, error, fetchTasks } = useGetData();
