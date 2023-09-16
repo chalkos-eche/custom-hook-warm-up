@@ -2,7 +2,7 @@
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export const LocalStorageComp = () => {
-  const [name, setName] = useLocalStorage('');
+  const [name, setName] = useLocalStorage('key', '');
   return (
     <div>
       <h1>LocalStorageCom</h1>
